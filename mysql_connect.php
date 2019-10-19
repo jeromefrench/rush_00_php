@@ -2,9 +2,10 @@
 $servername = "localhost";
 $username = "root";
 $password = "rootpasswd";
+$dbname = "rush_00";
 
 // Create connection
-$conn = mysqli_connect($servername, $username, $password);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
 // Check connection
 if (!$conn) {
@@ -22,20 +23,15 @@ if (mysqli_num_rows($result) > 0) {
 	// output data of each row
 	while($row = mysqli_fetch_assoc($result)) {
 		echo "id: " . $row["id"].  "<br>";
+		var_dump($row);
 	}
 } else {
-	echo "0 results";
+	echo "</br>0 results</br>";
 }
 
 
+mysqli_close($conn);
 
-
-
-
-
-
-
-
-var_dump($result);
+/* var_dump($result); */
 
 ?>
