@@ -11,6 +11,4 @@ $conn = connection_bdd($bdd_info['servername'], $bdd_info['username'], $bdd_info
 
 echo "on va ajouter la categorie ==>".$_POST['categorie_name']."</br>";
 create_categorie($_POST['categorie_name'], $conn);
-
-
 ?>
