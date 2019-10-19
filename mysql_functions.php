@@ -4,21 +4,21 @@ function get_bdd_info()
 {
 	$bdd_info['servername'] = "localhost";
 	$bdd_info['username'] = "root";
-	$bdd_info['password'] = "rootpasswd";
-	$bdd_info['dbname'] = "rush_00";
+	$bdd_info['password'] = "MOT2passe";
+	$bdd_info['dbname'] = "42php_rush";
 	return $bdd_info;
 }
 
 function connection_bdd($servername, $username, $password, $dbname)
 {
-	echo "try to Create connection</br>";
+	echo "TRY TO CREATE CONNECTION... </br>";
 	$conn = mysqli_connect($servername, $username, $password, $dbname);
 	// Check connection
 	if (!$conn) {
-		die("Connection failed: " . mysqli_connect_error());
+		die("CONNECTION FAILLED: " . mysqli_connect_error());
 	}
 
-	echo "Connexion reussi !</br>";
+	echo "CONNECTION SUCCESSFUL!</br>";
 	return ($conn);
 }
 

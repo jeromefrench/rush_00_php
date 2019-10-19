@@ -3,8 +3,7 @@
 echo "page ajout categorie</br>";
 echo "hello";
 
-include ('mysql_functions.php');
-
+require ('mysql_functions.php');
 
 $bdd_info = get_bdd_info();
 var_dump($bdd_info);
@@ -15,7 +14,3 @@ create_categorie($_POST['categorie_name'], $conn);
 
 
 ?>
-
-
-
-
