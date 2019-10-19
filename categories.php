@@ -9,40 +9,33 @@ $sql = "SELECT * FROM categories";
 $result = mysqli_query($conn, $sql);
 
 
-
-/*CODE A COMPRENDRE SI FONCITONNE*/
 if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result))
 		{
 				$categorie[] = $row["nom"];
         /*echo "id: " . $row["id"]. " - Name: " . $row["nom"] . ".\n";*/
     }
-		print_r($categorie);
+//		print_r($categorie);
 } else {
     echo "0 results";
 }
-
-
-
-/* INSERT INTO `categories` (`id`, `nom`) VALUES (NULL, 'kid\'s'); */
-
 ?>
 
 
+
 <div id="categories" />
-
 	<ul class="categories">
-			 <li><a href="#" data-group="<?php $categorie[0] ?>"> <?php echo $categorie[0]; ?></a> </li>
-			 <li><a href="#" data-group="Klassic">X</a> </li>
-			 <li><a href="#" data-group="Bio">X</a> </li>
-			 <li><a href="#" data-group="Kids">X</a> </li>
-			 <li><a href="#" data-group="Barres">X</a> </li>
+<?php
+	foreach ($categorie as $row)
+	{
+		echo '<li><a href="#" data-group=' . $categorie . '>' . $row . '</a></li>';
+	}
+?>
 	</ul>
-
 </div>
 
-<div class="gallery">
 
+<div class="gallery">
 <ul class="products">
 	<li data-groups='["Klassic"]'>
 		<a href="#" >

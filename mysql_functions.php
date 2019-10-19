@@ -5,7 +5,7 @@ function get_bdd_info()
 	$bdd_info['servername'] = "localhost";
 	$bdd_info['username'] = "root";
 	$bdd_info['password'] = "MOT2passe";
-	$bdd_info['dbname'] = "42php_rush";
+	$bdd_info['dbname'] = "rush_00";
 	return $bdd_info;
 }
 
