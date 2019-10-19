@@ -4,12 +4,14 @@ $html = "<p>Je suis le header</p>";
 ?>
 
 
+
+
+
+
 <div id=header >
 	<ul>
-		<li><a href="index.php">Accueil</a></li>
-		<li><a href="inscription.php">Inscription</a></li>
-		<li><a href="panier.php">Panier</a></li>
+		<li><a href="index.php">HOME</a></li>
+		<li><a href="inscription.php">JOIN US !</a></li>
+		<li><a href="panier.php">PANIER</a></li>
 	</ul>
 </div>
-
-
