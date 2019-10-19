@@ -1,0 +1,18 @@
+.inline
+{
+	/* display:inline-block; */
+	/* border:solid 2px red; */
+}
+
+#main_vue
+{
+	/* width: 550px; */
+	/* border:solid 2px red; */
+}
+
+div #left_panel
+{
+	width: 150px;
+	border:solid 2px blue;
+
+}
