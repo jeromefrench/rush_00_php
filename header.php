@@ -10,5 +10,6 @@ $html = "<p>Je suis le header</p>";
 		<li><a href="inscription.php">JOIN US !</a></li>
 		<li><a href="panier.php">PANIER</a></li>
 		<li><a href="login.php">LOG IN</a></li>
+		<li><a href="administration.php">administration</a></li>
 	</ul>
 </div>

@@ -3,7 +3,7 @@
 echo "page ajout categorie</br>";
 echo "hello";
 
-require ('mysql_functions.php');
+require_once ('mysql_functions.php');
 
 $bdd_info = get_bdd_info();
 var_dump($bdd_info);
