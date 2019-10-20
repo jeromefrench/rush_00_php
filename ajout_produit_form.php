@@ -58,13 +58,10 @@ if (mysqli_num_rows($result) > 0) {
       <input type="number" name="product_stock"></br>
 
       Description :</br>
-      <textarea name="product_description" rows="10" cols="30">
-      </textarea></br>
+      <textarea name="product_description" rows="10" cols="30"></textarea></br>
 
       Photo (link): </br>
       <input type="text" name="product_photo"></br>
-
-
 
 		 </br><input type="submit">
 		</br>

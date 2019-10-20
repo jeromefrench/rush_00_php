@@ -56,7 +56,10 @@ function create_categorie($categorie_name, $conn)
 {
 	$sql = "INSERT INTO `categories` (`id`, `nom`) VALUES (NULL, '$categorie_name')";
 	if (mysqli_query($conn, $sql)) {
-    	echo "New record created successfully";
+	{
+		;
+    	/* echo "New record created successfully"; */
+	}
 	} else {
     	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
