@@ -18,7 +18,6 @@ require ('mysql_functions.php');
 				<li class="admin"><a href="administration.php">ADMIN</a></li>
 			</ul>
 		</nav>
-
 <?php
 if (!isset($_POST['submit']))
 {
@@ -48,7 +47,6 @@ else
 	{
 		echo "LOGIN AND PASSWORD DOESNT MATCH SORRY";
 	}
-
 }
 ?>
 

@@ -1,5 +1,4 @@
 <?php
-
 require ('mysql_functions.php');
 
 $bdd_info = get_bdd_info();
