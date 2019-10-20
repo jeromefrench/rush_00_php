@@ -9,6 +9,7 @@
 	<li><a href="creer_base_de_donnee.php">Initialiser uen base de donnee vide</a></li>
 	<li><a href="drop_data_base.php">Supprimmer la base de donnee</a></li>
 	<li><a href="import_base_de_donnee.php">Importer base de donnee</a></li>
+	<li><a href="visualiser_client.php">Visualiser client</a></li>
 </ul>
 
 

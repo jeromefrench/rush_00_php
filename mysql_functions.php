@@ -1,5 +1,24 @@
 <?php
 
+function display_user()
+{
+	if (isset($_SESSION['logon']))
+	{
+		if ($_SESSION['logon'] == true)
+		{
+			echo'
+			<div class="user_connect">
+			<p>Vous etes connecter en tant que :</br>
+			'.$_SESSION['login'].'</p>
+			</div>
+			';
+		}
+
+	}
+}
+
+
+
 function get_bdd_info()
 {
 	/* $bdd_info['servername'] = "localhost"; */
@@ -12,7 +31,6 @@ function get_bdd_info()
 	/* var_dump($bdd_info); */
 	return $bdd_info;
 }
-
 
 function drop_database()
 {
@@ -43,14 +61,14 @@ function connection_bdd($servername, $username, $password, $dbname)
 	$dbname = $bdd_info['dbname'];
 
 
-/*	echo "TRY TO CREATE CONNECTION... </br>"; */
+	echo "TRY TO CREATE CONNECTION... </br>";
 	$conn = mysqli_connect($servername, $username, $password, $dbname);
 	// Check connection
 	if (!$conn) {
 		die("CONNECTION FAILLED: " . mysqli_connect_error());
 	}
 
-/*	echo "CONNECTION SUCCESSFUL!</br>";*/
+	/*	echo "CONNECTION SUCCESSFUL!</br>";*/
 	return ($conn);
 }
 
@@ -79,5 +97,83 @@ function create_product($product_name, $product_categorie, $product_price, $prod
 	}
 }
 /***** FONCTION PRODUIT - ESSAI LAURA *****/
+
+function add_user_to_bdd($user_login, $user_fname, $user_lname, $user_mail, $user_passwd, $conn)
+{
+	echo "</br>boom</br>";
+	$sql = "INSERT INTO user (`id`, `login`, `fname`, `lname`, `mail`, `passwd`) VALUES (NULL, '$user_login', '$user_fname', '$user_lname', '$user_mail', '$user_passwd')";
+
+
+
+	if (mysqli_query($conn, $sql)) {
+    	echo "New record created successfully";
+	} else {
+    	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	}
+
+}
+
+
+function check_if_login_exist($new_login)
+{
+	$bdd_info = get_bdd_info();
+	$conn = connection_bdd($bdd_info['servername'], $bdd_info['username'], $bdd_info['password'], $bdd_info['dbname']);
+	echo "helllllllo le login ===>".$new_login."</br>";
+	/* echo $sql = "SELECT * FROM `user`"; */
+	echo $sql = "SELECT * FROM `user` WHERE `login` LIKE '".$new_login."'";
+	echo "</br>";
+
+	$result_p = mysqli_query($conn, $sql);
+	if (mysqli_num_rows($result_p) > 0) {
+    	while($row = mysqli_fetch_assoc($result_p))
+		{
+      		/* if ($new_login === $row['login']); */
+			/* { */
+			/* var_dump($new_login); */
+			/* var_dump($row['login']); */
+			/* echo "le new login ===>".$new_login."</br>"; */
+			/* echo "le new login that match ===>".$row["login"]."</br>"; */
+			return true;
+			/* } */
+    	}
+  	} else {
+      	echo "0 results";
+		return false;
+  	}
+	return false;
+}
+
+function login_and_password_match($login, $password)
+{
+	$bdd_info = get_bdd_info();
+	$conn = connection_bdd($bdd_info['servername'], $bdd_info['username'], $bdd_info['password'], $bdd_info['dbname']);
+	echo "helllllllo le login ===>".$login."</br>";
+	echo $sql = "SELECT * FROM `user` WHERE `login` LIKE '".$login."'";
+	echo "</br>";
+
+	$result_p = mysqli_query($conn, $sql);
+	if (mysqli_num_rows($result_p) > 0) {
+    	while($row = mysqli_fetch_assoc($result_p))
+		{
+			/* var_dump($row); */
+			/* echo "le password donne =>".$password."</br>"; */
+			/* echo "le password teste =>".$row['passwd']."</br>"; */
+			if (($val = strcmp($password, $row['passwd'])) == 0)
+			{
+				/* echo "</br>SSSSSSSSSSSSUUUUUUUUUUUUUUUUCCCCCCCCCCCCEEEEEEEEEESSSSSSSSSSS</br></br>"; */
+				return true;
+			}
+			/* echo $val."</br>"; */
+
+    	}
+  	} else {
+      	echo "0 results";
+		return false;
+  	}
+
+}
+
+
+
 
 ?>

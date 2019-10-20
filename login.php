@@ -1,8 +1,7 @@
 <?php
-
+session_start();
+require ('mysql_functions.php');
 ?>
-
-
 <html>
 	<head meta charset="utf-8" />
 	<title>SERIAL EATER</title>
@@ -20,19 +19,44 @@
 			</ul>
 		</nav>
 
+<?php
+	if (!isset($_POST['submit']))
+	{
+		echo '
 
-  <form action="inscription.php" method="post">
+  <form action="login.php" method="post">
 		  <div class="container_login">
-				<label for="email"><b>MAIL</b></label>
-		    <input type="text" placeholder="Enter Email" name="email" required>
+				<label for="login"><b>LOGIN</b></label>
+			    <input type="text" placeholder="Enter LOGIN" name="login" required>
 				<br />
-		    <label for="psw"><b>PASSWORD</b></label>
-		    <input type="password" placeholder="Enter Password" name="psw" required>
+			    <label for="psw"><b>PASSWORD</b></label>
+			    <input type="password" placeholder="Enter Password" name="passwd" required>
 				<br />
-		    <button type="submit" class="loginbtn">LOG IN</button>
+			    <input type="submit" name="submit" class="loginbtn" value="LOG IN">
 		  </div>
 		</form>
+';
+	}
+	else
+	{
+		//on triate le sign in
+		if (login_and_password_match($_POST['login'], $_POST['passwd']) == true)
+		{
+			echo "YOU ARE NOW LOG IN   YEAHHHHH";
+			$_SESSION['logon'] = true;
+			$_SESSION['login'] = $_POST['login'];
+		}
+		else
+		{
+			echo "LOGIN AND PASSWORD DOESNT MATCH SORRY";
+		}
 
+	}
+?>
+
+<?php
+display_user();
+?>
 
 	</body>
 </html>

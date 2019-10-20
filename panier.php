@@ -45,6 +45,10 @@ if (mysqli_num_rows($result_p) > 0) {
 				<li class="admin"><a href="administration.php">ADMIN</a></li>
 			</ul>
 		</nav>
+
+<?php
+display_user();
+?>
 </body>
 
 

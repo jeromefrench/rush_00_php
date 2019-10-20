@@ -22,18 +22,14 @@ h1
 	font-family: helvetica neue;
 }
 
-
-
 .categories
 {
 	text-align: center;
 }
 
-
 .categories li
 {
 	display: inline-block;
-
 }
 
 .categories a
@@ -50,12 +46,10 @@ h1
     color: black;
 }
 
-
 nav
 {
 	text-align: center;
 }
-
 
 nav li.admin
 {
@@ -102,7 +96,6 @@ nav ul li.nav_hover:hover
     background-color: #FFDE4A;
 }
 
-
 form
 {
 	display: block;
@@ -114,7 +107,6 @@ form
 	text-align: center;
 	line-height: 5vw;
 }
-
 
 form label
 {
@@ -139,8 +131,6 @@ form label
 	border-radius: 0.5
 }
 
-
-
 .product .txt_product
 {
 opacity:0;
@@ -164,13 +154,10 @@ line-height: 5vw;
   opacity:1;
 }
 
-
 .products .img_product:hover img
 {
 	filter: blur(2px)grayscale(85%);
-
 }
-
 
 .products a .btton_buy
 {
@@ -203,5 +190,54 @@ line-height: 5vw;
   height: 20vw;
   margin: auto
 }
+
+
+.container_login, .container_signup
+{
+	border:solid 2px black;
+	width:400px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:left;
+	padding:50px;
+}
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+
+.user_connect
+{
+	position:absolute;
+	right:10px;
+	top:10px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /***** TEST *****/
