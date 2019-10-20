@@ -10,11 +10,6 @@
 	/* border:solid 2px red; */
 }
 
-div #left_panel
-{
-	width: 150px;
-	border:solid 2px blue;
-}
 
 h1
 {
@@ -22,28 +17,11 @@ h1
 	font-family: helvetica neue;
 }
 
-.gallery
-{
-	width: 100%;
-}
 
-.gallery img
-{
-	display: inline-block;
-	width: 10vw;
-	margin: 0.5vw;
-}
-
-
-.gallery ul
-{
-		list-style:none;
-}
 
 .categories
 {
 	text-align: center;
-	font-family: helvetica neue;
 }
 
 
@@ -58,7 +36,7 @@ h1
 	text-decoration: none;
 	color: #FFDE4A;
 	font-family: helvetica neue;
-	font-size: 1.5vw;
+	font-size: 2vw;
 	margin: 0.5vw;
 }
 
@@ -70,20 +48,43 @@ h1
 
 nav
 {
-		text-align: center;
-}
-
-nav li{
-	display: inline-block;
-	border-color: #FFDE4A;
-	border-style: solid;
-	width: 10vw;
-	padding: 1vw;
-	margin: 0.5vw;
 	text-align: center;
 }
 
-nav li a{
+
+nav li.admin
+{
+	display: inline-block;
+	background-color: lightgrey;
+	border-color: lightgrey;
+	border-style: solid;
+	border-width: 0.3vw;
+	border-width: 0.3vw;
+	width: 10vw;
+	margin: 0.5vw;
+	padding: 0.5vw;
+}
+
+nav li
+{
+	display: inline-block;
+	border-color: #FFDE4A;
+	border-style: solid;
+	border-width: 0.3vw;
+	width: 10vw;
+	margin: 0.5vw;
+	padding: 0.5vw;
+}
+
+nav li.on
+{
+	background-color: #FFDE4A;
+}
+
+nav li a
+{
+	text-align: center;
+	display: inline-block;
 	color:black;
 	text-decoration: none;
 	font-family: helvetica neue;
@@ -91,17 +92,11 @@ nav li a{
 }
 
 
-nav ul > li:hover
+nav ul li.nav_hover:hover
 {
     background-color: #FFDE4A;
 }
 
-
-nav li .on
-{
-	display: inline-block;
-	background-color: #FFDE4A;
-}
 
 form
 {
@@ -110,6 +105,7 @@ form
 	color: black;
 	font-family: helvetica neue;
 	font-size: 1.5vw;
+	font-weight: lighter;
 	text-align: center;
 	line-height: 5vw;
 }
@@ -120,5 +116,87 @@ form label
 	color: black;
 	font-family: helvetica neue;
 	font-weight: lighter;
+}
+
+.products
+{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.products > div
+{
+	margin: 0.5vw;
+	height: 25vw;
+	border-color: #FFDE4A;
+	border-style: solid;
+	border-width: 0.3vw;
+	border-radius: 0.5
+}
+
+
+
+.product .txt_product
+{
+opacity:0;
+}
+
+.product .txt_product h2
+{
+position: relative;
+text-align: center;
+font-weight: normal;
+font-family: helvetica neue;
+font-size: 3vw;
+color: #FFDE4A;
+z-index: 99;
+margin-top: 6vw;
+line-height: 5vw;
+}
+
+.product:hover .txt_product {
+/*transition:all 0.5s;*/
+  opacity:1;
+}
+
+
+.products .img_product:hover img
+{
+	filter: blur(2px)grayscale(85%);
 
 }
+
+
+.products a .btton_buy
+{
+	display: block;
+	position: relative;
+	width: 2.5vw;
+	height: 2.5vw;
+	margin-left: 87%;
+	margin-top: -2vw;
+}
+
+.products a .btton_buy > img
+{
+		width: 100%;
+}
+
+.products .img_product
+{
+	display: flex;
+	width: 20vw;
+	height: 20vw;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: -15vw;
+}
+
+.products .img_product > img
+{
+	width: 20vw;
+  height: 20vw;
+  margin: auto
+}
+
+/***** TEST *****/

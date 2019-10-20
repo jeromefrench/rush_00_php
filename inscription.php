@@ -9,7 +9,7 @@ $conn = connection_bdd($bdd_info['servername'], $bdd_info['username'], $bdd_info
 
 
 /****AJOUT USER - EN COURS*****/
-
+/*
 echo "on va ajouter les users ==>".$_POST['categorie_name']."</br>";
 create_user($_POST['categorie_name'], $conn);
 
@@ -30,7 +30,7 @@ function create_users($categorie_name, $conn)
 INSERT INTO `users` (`id`, `identifiant`, `first name`, `lastname`, `email`, `password`) VALUES (NULL, '$user_login', '$user_fname', '$user_lname', '$user_mail', '$user_passwd');
 
 
-
+*/
 /****AJOUT USER - EN COURS*****/
 
 ?>
@@ -45,10 +45,11 @@ INSERT INTO `users` (`id`, `identifiant`, `first name`, `lastname`, `email`, `pa
 
 		<nav>
 			<ul>
-				<li><a href="index.php" >HOME</a></li>
-				<li><a href="inscription.php" class="on">JOIN US !</a></li>
-				<li><a href="panier.php" >PANIER</a></li>
-				<li><a href="login.php" >LOG IN</a></li>
+				<li class="nav_hover"><a href="index.php" >HOME</a></li>
+				<li class="on"><a href="inscription.php" >JOIN US !</a></li>
+				<li class="nav_hover"><a href="panier.php" >PANIER</a></li>
+				<li class="nav_hover"><a href="login.php" >LOG IN</a></li>
+				<li class="admin"><a href="administration.php">ADMIN</a></li>
 			</ul>
 		</nav>
 

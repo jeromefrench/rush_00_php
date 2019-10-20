@@ -43,14 +43,14 @@ function connection_bdd($servername, $username, $password, $dbname)
 	$dbname = $bdd_info['dbname'];
 
 
-	echo "TRY TO CREATE CONNECTION... </br>";
+/*	echo "TRY TO CREATE CONNECTION... </br>"; */
 	$conn = mysqli_connect($servername, $username, $password, $dbname);
 	// Check connection
 	if (!$conn) {
 		die("CONNECTION FAILLED: " . mysqli_connect_error());
 	}
 
-	echo "CONNECTION SUCCESSFUL!</br>";
+/*	echo "CONNECTION SUCCESSFUL!</br>";*/
 	return ($conn);
 }
 
@@ -64,5 +64,18 @@ function create_categorie($categorie_name, $conn)
     	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
 }
+
+/***** FONCTION PRODUIT - ESSAI LAURA *****/
+function create_product($product_name, $product_categorie, $product_price, $product_statut, $product_stock, $product_description, $product_photo, $conn)
+{
+	$sql = "INSERT INTO `products` (`id`, `name`, `categorie`, `price`, `statut`, `stock`, `description`, `photo`) VALUES (NULL, '$product_name', '$product_categorie', '$product_price', '$product_statut', '$product_stock', '$product_description', '$product_photo')";
+
+	if (mysqli_query($conn, $sql)) {
+    	echo "New record created successfully";
+	} else {
+    	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	}
+}
+/***** FONCTION PRODUIT - ESSAI LAURA *****/
 
 ?>
