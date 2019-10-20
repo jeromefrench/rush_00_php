@@ -1,5 +1,4 @@
 <?php
-
 require ('mysql_functions.php');
 
 $bdd_info = get_bdd_info();
@@ -49,7 +48,7 @@ if (mysqli_num_rows($result) > 0) {
     <input type="number" name="product_price"></br>
 
     Statut :</br>
-    <input list="product_statut">
+    <input list="product_statut" name="product_statut">
      <datalist id="product_statut">
          <option value="ordered">
          <option value="not ordered">
@@ -59,13 +58,10 @@ if (mysqli_num_rows($result) > 0) {
       <input type="number" name="product_stock"></br>
 
       Description :</br>
-      <textarea name="product_description" rows="10" cols="30">
-      </textarea></br>
+      <textarea name="product_description" rows="10" cols="30"></textarea></br>
 
       Photo (link): </br>
       <input type="text" name="product_photo"></br>
-
-
 
 		 </br><input type="submit">
 		</br>

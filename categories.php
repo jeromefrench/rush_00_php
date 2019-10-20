@@ -1,23 +1,17 @@
 <?php
 session_start();
 require ('mysql_functions.php');
-
 $bdd_info = get_bdd_info();
 $conn = connection_bdd($bdd_info['servername'], $bdd_info['username'], $bdd_info['password'], $bdd_info['dbname']);
-
 /***** RECUPERER LES PRODUCTS *****/
-
 
 $sql_p= "SELECT * FROM products";
 
 if ($_GET['categorie'] != null)
 {
 	/* $sql_p= "SELECT * FROM products WHERE categorie = ".$_GET['categorie']; */
-	echo $sql_p = "SELECT * FROM `products` WHERE `categorie` LIKE '".$_GET['categorie']."'";
-	echo "la requete ==>".$sql_p;
+	$sql_p = "SELECT * FROM `products` WHERE `categorie` LIKE '".$_GET['categorie']."'";
 }
-
-
 
 $sql_c= "SELECT * FROM categories";
 
@@ -33,7 +27,6 @@ if (mysqli_num_rows($result_p) > 0) {
         $product_stock[] = $row["stock"];
         $product_description[] = $row["description"];
         $product_photo[] = $row["photo"];
-
     }
 /*		print_r($product_name);
     print_r($product_price);*/

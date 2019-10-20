@@ -19,48 +19,27 @@ Data Base Name :</br>
 </form>
 
 <?php
-
-/* var_dump($_POST); */
-
-
 if ($_POST['submit'] != null)
 {
+	include_once ('mysql_functions.php');
 	$bdd_info['servername'] = $_POST['servername'];
 	$bdd_info['username'] = $_POST['username'];
 	$bdd_info['password'] = $_POST['password'];
 	$bdd_info['dbname'] = $_POST['dbname'];
-
-	echo "</br>";
-	echo "</br>";
-	/* echo "========le fd =>".$fd = fopen("./bdd_info", 'r+'); */
-	echo "</br>";
-	echo "</br>";
 	$str = serialize($bdd_info);
-	echo $str;
-	echo "</br>";
-	echo "</br>";
 	file_put_contents("bdd_info", $str);
-
-
-	include ('mysql_functions.php');
-
 	$bdd_info = get_bdd_info();
-
-	echo "try to Create connection</br>";
 	$conn = mysqli_connect($bdd_info['servername'], $bdd_info['username'], $bdd_info['password']);
-	// Check connection
 	if (!$conn) {
 		die("Connection failed: " . mysqli_connect_error());
 	}
 	echo "Connexion reussi !</br>";
-
 	$sql = "CREATE DATABASE rush_00";
 	if ($conn->query($sql) === TRUE) {
     	echo "Database created successfully";
 	} else {
     	echo "Error creating database: " . $conn->error;
 	}
-
 	//************************************************************************
 	// sql to create table
 	// creation de la table categories : id, nom
@@ -72,8 +51,6 @@ if ($_POST['submit'] != null)
 	} else {
 		echo "Error creating table: " . mysqli_error($conn);
 	}
-
-
 	//************************************************************************
 	// sql to create table
 	// creation de la table products : id, name, categorie, price, statut, stock, descriptiion, photoh
@@ -85,7 +62,5 @@ if ($_POST['submit'] != null)
 	} else {
 		echo "Error creating table: " . mysqli_error($conn);
 	}
-
 }
-
 ?>
