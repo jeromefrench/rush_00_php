@@ -5,6 +5,7 @@
 	</head>
 	<body>
 <h1>Page Visualiser Client</h1>
+<a href="administration.php">Retour</a>
 
 
 

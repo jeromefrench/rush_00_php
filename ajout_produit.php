@@ -1,6 +1,7 @@
 <?php
 require_once ('mysql_functions.php');
 echo "<h1>Page ajout product</h1>";
+echo "<a href="administration.php">Retour</a>";
 
 $bdd_info = get_bdd_info();
 $conn = connection_bdd($bdd_info['servername'], $bdd_info['username'], $bdd_info['password'], $bdd_info['dbname']);

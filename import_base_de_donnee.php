@@ -1,6 +1,9 @@
+<h1>Import de la base de donnee</h1>
+<a href="administration.php">Retour</a>
+
 <form method="post" action="import_base_de_donnee.php">
 
-	<input type="text" name="file" value="/Users/jchardin/Downloads/rush_00.sql">
+<input type="text" name="file" <?php echo" value=".getcwd()."/rush_00.sql" ?>>
 	<input type="submit" name="submit">
 </form>
 
