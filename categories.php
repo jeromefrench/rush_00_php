@@ -8,8 +8,6 @@ $conn = connection_bdd($bdd_info['servername'], $bdd_info['username'], $bdd_info
 /***** RECUPERER LES PRODUCTS *****/
 
 
-echo("test");
-echo (var_dump($_GET));
 
 
 $sql_p= "SELECT * FROM products";
