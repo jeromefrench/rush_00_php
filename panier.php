@@ -23,8 +23,8 @@ if (mysqli_num_rows($result_p) > 0) {
         $product_photo[] = $row["photo"];
 
     }
-/*		print_r($product_name);
-    print_r($product_price);*/
+		print_r($product_name);
+    print_r($product_price);
   } else {
       echo "0 results";
   }
@@ -52,22 +52,31 @@ if (mysqli_num_rows($result_p) > 0) {
 </body>
 
 
-<h1>TEXT</h1>
-
 <?php
-foreach($_GET as $key => $value)
-{
-  echo "$key: $value"."\n";
-}
 
 
-if ($_GET[action] == "add"))
+if ($_GET[action] == "add")
 {
-  echo "AJOUTE LE PRODUIT AU PANIER";
+  echo "ADD TO PANIER"."\n";
+  echo "$_GET[name]" . "$_GET[price]"."\n";
+  echo var_dump($_SESSION['panier']);
+
+  $_SESSION['panier'][$id_article]['nom']  = $_GET[name];
+  $_SESSION['panier'][$id_article]['prix'] = $_GET[price];
 }
+/*else if (isset($_GET['modifier']))  $_SESSION['panier'][$id_article]['qte'] = $qte_article;*/
+else if (isset($_GET['supprimer']))  unset($_SESSION['panier'][$id_article]);
+
+
+echo '<h2>Contenu de votre panier</h2>';
+foreach($_SESSION['panier'] as $id_article)
+{
+  echo ' <form> ARTICLE : '. $id_article['nom']. ' PRICE :' . $id_article['prix'] .'<input type="submit" name="modifier" value="Nouvelle Qté" /><input type="submit" name="supprimer" value="Supprimer" /><hr> </form> ';
+
+}
+
 
  ?>
-
 
 </div>
 </html>

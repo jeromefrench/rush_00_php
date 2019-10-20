@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require ('mysql_functions.php');
 
 $bdd_info = get_bdd_info();
@@ -12,9 +12,6 @@ echo("test");
 echo (var_dump($_GET));
 
 
-
-
-
 $sql_p= "SELECT * FROM products";
 
 if ($_GET['categorie'] != null)
@@ -23,9 +20,6 @@ if ($_GET['categorie'] != null)
 	$sql_p = "SELECT * FROM `products` WHERE `categorie` LIKE '".$_GET['categorie']."'";
 	echo "la requete ==>".$sql_p;
 }
-
-
-
 
 
 $sql_c= "SELECT * FROM categories";
@@ -85,7 +79,7 @@ if (mysqli_num_rows($result_c) > 0) {
 	foreach ($product_name as $row)
 	{
 		echo '<div class="product"> <div class="txt_product"> <h2>' . $row .  '</br>' . $product_price[$i] . '$ </h2> </div> <div class="img_product"> <img alt="" src="' . $product_photo[$i] . '" /> </div>
-        <a href="panier.php?&' . $action . '=add&id=' . $product_id[$i]. '&name='. $product_name[$i] .'&price='. $product_price[$i] .'"><div class="btton_buy">  <img alt="" src="../img/img_buy.png" /> </div> </a> </div>';
+        <a href="panier.php?&action=add&id=' . $product_id[$i]. '&name='. $product_name[$i] .'&price='. $product_price[$i] . '&qqte=1"><div class="btton_buy">  <img alt="" src="../img/img_buy.png" /> </div> </a> </div>';
     $i++;
 	}
 ?>
