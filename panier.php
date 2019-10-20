@@ -54,26 +54,58 @@ display_user();
 
 <?php
 
+echo "TES34 <br/>";
 
-
-
-$_SESSION [article] [$informations][id]
-                                  [price]
-
-$_GET[id]
-$_GET[name]
-$_GET[price]
-$_GET[qqte]
-
-
-if ($_GET[action] == "add")
+if (! isset($_SESSION['panier']))
 {
-  foreach ($article as $informations)
-  {
-    echo "$informations";
-
-  }
+  $_SESSION['panier'] = array();
+  var_dump($_SESSION);
+  echo "<br/>";
 }
+//  $_SESSION['panier'][$article]['nom']  = $_GET['name'];
+//  $_SESSION['panier'][$article]['prix'] = $_GET['price'];
+//  $_SESSION['panier'][$article]['qqte'] = $_GET['qqte'];
+//  $articles = array("nom" => $_GET['name'], "prix" => $_GET['price'], "qqte" => $_GET['qqte']);
+//  $_SESSION['panier']= $articles;
+
+if ($_GET['action'] == "add")
+{
+  echo "GET = ADD";
+  $articles = array("id" => $_GET['id'], "nom" => $_GET['name'], "price" => $_GET['price'], "qqte" => $_GET['qqte']);
+  array_push($_SESSION['panier'], $articles);
+  var_dump($_SESSION);
+  echo "<br/>";
+}
+if ($_GET['supprimer'] == "supprimer")
+{
+   echo "SURPRIME LE";
+   echo "<br/>";
+   unset($_SESSION['panier'][$article]['id']);
+}
+/*if (($_GET['modifier'] == "ajouter"))
+   $_SESSION['panier'][$id_article]['qte'] = $article['qqte'];*/
+
+
+foreach($_SESSION['panier'] as $article)
+{
+  echo '<form>', $article['nom'], ' (', number_format($article['price'], 2, ',', ' '), ' €) ',
+        '<input type="hidden" name="id_article" value="', $article['id'] , '" />
+        <br />Qté: <input type="text" name="qte_article" value="', $article['qqte'] , '" />
+        <input type="submit" name="modifier" value="ajouter" />
+        <input type="submit" name="supprimer" value="supprimer" /><hr></form>';
+        $total_panier += $article['price'] * $article['qqte'];
+}
+if(isset($article['nom']))
+{
+  echo '<h1>Total: ', number_format($total_panier, 2, ',', ' '), ' €<h1/>'; // Affiche le total du panier
+  echo '<input type="submit" name="valider" value="valider" />';
+}
+
+
+
+
+
+
 
 
 
