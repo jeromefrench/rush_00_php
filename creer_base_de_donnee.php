@@ -74,6 +74,10 @@ if ($_POST['submit'] != null)
 	}
 
 
+	//************************************************************************
+	// sql to create table
+	// creation de la table products : id, name, categorie, price, statut, stock, descriptiion, photoh
+	//************************************************************************
 	$sql = "CREATE TABLE `rush_00`.`products` ( `id` INT NOT NULL AUTO_INCREMENT , `name` TEXT NOT NULL , `categorie` VARCHAR(255) NOT NULL , `price` INT NOT NULL , `statut` VARCHAR(255) NOT NULL , `stock` INT NOT NULL , `description` TEXT NOT NULL , `photo` TEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB";
 
 	if (mysqli_query($conn, $sql)) {

@@ -6,7 +6,28 @@ $bdd_info = get_bdd_info();
 $conn = connection_bdd($bdd_info['servername'], $bdd_info['username'], $bdd_info['password'], $bdd_info['dbname']);
 
 /***** RECUPERER LES PRODUCTS *****/
+
+
+echo("test");
+echo (var_dump($_GET));
+
+
+
+
+
 $sql_p= "SELECT * FROM products";
+
+if ($_GET['categorie'] != null)
+{
+	$sql_p= "SELECT * FROM products WHERE categorie = ".$_GET['categorie'];
+	$sql_p = "SELECT * FROM `products` WHERE `categorie` LIKE '".$_GET['categorie']."'";
+	echo "la requete ==>".$sql_p;
+}
+
+
+
+
+
 $sql_c= "SELECT * FROM categories";
 
 $result_p = mysqli_query($conn, $sql_p);
@@ -50,7 +71,8 @@ if (mysqli_num_rows($result_c) > 0) {
 <?php
 	foreach ($categorie as $row)
 	{
-		echo '<li><a href="#" data-filter="' . $row . '" tabindex="-1">' . $row . '</a></li>';
+		/* echo "====>".$row."<=========="; */
+		echo '<li><a href="index.php?categorie='.$row.'" data-filter="' . $row . '" tabindex="-1">' . $row . '</a></li>';
 	}
 ?>
 

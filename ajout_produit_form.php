@@ -35,8 +35,8 @@ if (mysqli_num_rows($result) > 0) {
     <input type="text" name="product_name"></br>
 
     Categorie :</br>
-    <input list="product_categorie'">
-    <datalist id="product_categorie'">
+    <input list="product_categorie"  name="product_categorie" >
+    <datalist id="product_categorie">
       <?php
           foreach ($categorie as $product_categorie)
           {
