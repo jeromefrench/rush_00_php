@@ -1,11 +1,36 @@
 <?php
+session_start();
+
 
 require ('mysql_functions.php');
 
 $bdd_info = get_bdd_info();
 $conn = connection_bdd($bdd_info['servername'], $bdd_info['username'], $bdd_info['password'], $bdd_info['dbname']);
 
+
+$sql_p= "SELECT * FROM products";
+
+$result_p = mysqli_query($conn, $sql_p);
+if (mysqli_num_rows($result_p) > 0) {
+    while($row = mysqli_fetch_assoc($result_p))
+		{
+      	$product_id[] = $row["id"];
+				$product_name[] = $row["name"];
+        $product_price[] = $row["price"];
+        $product_statut[] = $row["statut"];
+        $product_stock[] = $row["stock"];
+        $product_description[] = $row["description"];
+        $product_photo[] = $row["photo"];
+
+    }
+/*		print_r($product_name);
+    print_r($product_price);*/
+  } else {
+      echo "0 results";
+  }
+
 ?>
+
 
 <html>
 	<head meta charset="utf-8" />
@@ -24,15 +49,25 @@ $conn = connection_bdd($bdd_info['servername'], $bdd_info['username'], $bdd_info
 			</ul>
 		</nav>
 
+</body>
 
- liste des produits que le client souhaite acquérir
- le prix et
 
-	la quantité de chaque article,
+<h1>TEXT</h1>
 
-	 ainsi que le coût total.
+<?php
+foreach($_GET as $key => $value)
+{
+  echo "$key: $value"."\n";
+}
 
-	 Il doit aussi contenir un bouton de validation pour archiver la commande.> ramenera au log
 
-	</body>
+if ($_GET[action] == "add"))
+{
+  echo "AJOUTE LE PRODUIT AU PANIER";
+}
+
+ ?>
+
+
+</div>
 </html>
