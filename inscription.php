@@ -1,11 +1,7 @@
 <?php
+session_start();
 
 require ('mysql_functions.php');
-
-$bdd_info = get_bdd_info();
-var_dump($bdd_info);
-$conn = connection_bdd($bdd_info['servername'], $bdd_info['username'], $bdd_info['password'], $bdd_info['dbname']);
-
 
 
 /****AJOUT USER - EN COURS*****/
@@ -123,6 +119,9 @@ else
 
 ?>
 
+<?php
+display_user();
+?>
 
 	</body>
 </html>

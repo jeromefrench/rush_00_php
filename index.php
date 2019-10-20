@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 	<head meta charset="utf-8" />
 	<title>SERIAL EATER</title>
@@ -20,5 +23,8 @@
 				<?php require ('./categories.php'); ?>
 		</div>
 
+<?php
+display_user();
+?>
 	</body>
 </html>

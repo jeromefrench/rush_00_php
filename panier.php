@@ -49,6 +49,9 @@ if (mysqli_num_rows($result_p) > 0) {
 			</ul>
 		</nav>
 
+<?php
+display_user();
+?>
 </body>
 
 
