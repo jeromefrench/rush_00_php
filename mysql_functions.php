@@ -13,7 +13,6 @@ function get_bdd_info()
 	return $bdd_info;
 }
 
-
 function drop_database()
 {
 	$bdd_info = get_bdd_info();
@@ -43,7 +42,7 @@ function connection_bdd($servername, $username, $password, $dbname)
 	$dbname = $bdd_info['dbname'];
 
 
-/*	echo "TRY TO CREATE CONNECTION... </br>"; */
+	echo "TRY TO CREATE CONNECTION... </br>";
 	$conn = mysqli_connect($servername, $username, $password, $dbname);
 	// Check connection
 	if (!$conn) {
