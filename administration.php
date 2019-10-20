@@ -1,4 +1,3 @@
-
 <h1>Page administration</h1>
 
 <ul>
@@ -11,9 +10,3 @@
 	<li><a href="import_base_de_donnee.php">Importer base de donnee</a></li>
 	<li><a href="visualiser_client.php">Visualiser client</a></li>
 </ul>
-
-
-<?php
-
-
-?>

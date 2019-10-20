@@ -20,10 +20,9 @@ require ('mysql_functions.php');
 		</nav>
 
 <?php
-	if (!isset($_POST['submit']))
-	{
-		echo '
-
+if (!isset($_POST['submit']))
+{
+	echo '
   <form action="login.php" method="post">
 		  <div class="container_login">
 				<label for="login"><b>LOGIN</b></label>
@@ -36,27 +35,25 @@ require ('mysql_functions.php');
 		  </div>
 		</form>
 ';
+}
+else
+{
+	if (login_and_password_match($_POST['login'], $_POST['passwd']) == true)
+	{
+		echo "YOU ARE NOW LOG IN   YEAHHHHH";
+		$_SESSION['logon'] = true;
+		$_SESSION['login'] = $_POST['login'];
 	}
 	else
 	{
-		//on triate le sign in
-		if (login_and_password_match($_POST['login'], $_POST['passwd']) == true)
-		{
-			echo "YOU ARE NOW LOG IN   YEAHHHHH";
-			$_SESSION['logon'] = true;
-			$_SESSION['login'] = $_POST['login'];
-		}
-		else
-		{
-			echo "LOGIN AND PASSWORD DOESNT MATCH SORRY";
-		}
-
+		echo "LOGIN AND PASSWORD DOESNT MATCH SORRY";
 	}
+
+}
 ?>
 
 <?php
 display_user();
 ?>
-
 	</body>
 </html>

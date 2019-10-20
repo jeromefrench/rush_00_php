@@ -1,34 +1,6 @@
 <?php
 session_start();
-
 require ('mysql_functions.php');
-
-
-/****AJOUT USER - EN COURS*****/
-/*
-echo "on va ajouter les users ==>".$_POST['categorie_name']."</br>";
-create_user($_POST['categorie_name'], $conn);
-
-
-
-function create_users($categorie_name, $conn)
-{
-	$sql = "INSERT INTO `categories` (`id`, `nom`) VALUES (NULL, '$categorie_name')";
-
-	if (mysqli_query($conn, $sql)) {
-    	echo "New record created successfully";
-	} else {
-    	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-	}
-
-
-
-INSERT INTO `users` (`id`, `identifiant`, `first name`, `lastname`, `email`, `password`) VALUES (NULL, '$user_login', '$user_fname', '$user_lname', '$user_mail', '$user_passwd');
-
-
-*/
-/****AJOUT USER - EN COURS*****/
-
 ?>
 
 <html>
@@ -47,7 +19,6 @@ INSERT INTO `users` (`id`, `identifiant`, `first name`, `lastname`, `email`, `pa
 				<li class="admin"><a href="administration.php">ADMIN</a></li>
 			</ul>
 		</nav>
-
 
 <?php
 
@@ -89,39 +60,28 @@ else
 	$user_mail = $_POST['user_mail'];
 	$user_passwd = $_POST['user_passwd'];
 
-	echo "ON CHEEEECK";
-
-
 	if ($user_login != "" && $user_fname != "" && $user_lname != "" && $user_mail != "" && $user_passwd != "")
 	{
 		//check si login exist
-	echo "</br>ON CHEEEECK try to add</br>";
+		echo "</br>ON CHEEEECK try to add</br>";
 		$bdd_info = get_bdd_info();
 		$conn = connection_bdd($bdd_info['servername'], $bdd_info['username'], $bdd_info['password'], $bdd_info['dbname']);
 
 		if (check_if_login_exist($user_login) == false)
 		{
-			//on ajoute le le user
 			add_user_to_bdd($user_login, $user_fname, $user_lname, $user_mail, $user_passwd, $conn);
 			echo "USER ADD SUCESSFULL";
-
 		}
 		else
 		{
-
 			echo "USER exist allready";
 		}
 	}
-
-
-
 }
-
 ?>
 
 <?php
 display_user();
 ?>
-
 	</body>
 </html>
