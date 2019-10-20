@@ -45,7 +45,7 @@ else
 	}
 	else
 	{
-		echo "LOGIN AND PASSWORD DOESNT MATCH SORRY";
+		echo "WRONG LOGIN OR PASSWORD SORRY";
 	}
 }
 ?>

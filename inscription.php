@@ -62,19 +62,18 @@ else
 
 	if ($user_login != "" && $user_fname != "" && $user_lname != "" && $user_mail != "" && $user_passwd != "")
 	{
-		//check si login exist
-		echo "</br>ON CHEEEECK try to add</br>";
 		$bdd_info = get_bdd_info();
 		$conn = connection_bdd($bdd_info['servername'], $bdd_info['username'], $bdd_info['password'], $bdd_info['dbname']);
 
 		if (check_if_login_exist($user_login) == false)
 		{
 			add_user_to_bdd($user_login, $user_fname, $user_lname, $user_mail, $user_passwd, $conn);
-			echo "USER ADD SUCESSFULL";
+			echo "<p>L'utilisateur a bien ete ajouter, Veuillez vous connectez.</p>";
+			echo '<p><a href="login.php">Login</a></p>';
 		}
 		else
 		{
-			echo "USER exist allready";
+			echo "Desolez ce login est deja pris";
 		}
 	}
 }
