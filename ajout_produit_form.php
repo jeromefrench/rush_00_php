@@ -48,7 +48,7 @@ if (mysqli_num_rows($result) > 0) {
     <input type="number" name="product_price"></br>
 
     Statut :</br>
-    <input list="product_statut">
+    <input list="product_statut" name="product_statut">
      <datalist id="product_statut">
          <option value="ordered">
          <option value="not ordered">

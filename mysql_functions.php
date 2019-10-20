@@ -67,10 +67,12 @@ function create_categorie($categorie_name, $conn)
 
 function create_product($product_name, $product_categorie, $product_price, $product_statut, $product_stock, $product_description, $product_photo, $conn)
 {
-	echo "boom";
 	$sql = "INSERT INTO products (`id`, `name`, `categorie`, `price`, `statut`, `stock`, `description`, `photo`) VALUES (NULL, '$product_name', '$product_categorie', '$product_price', '$product_statut', '$product_stock', '$product_description', '$product_photo')";
 	if (mysqli_query($conn, $sql)) {
-    	echo "New record created successfully";
+	{
+		;
+    	/* echo "New record created successfully"; */
+	}
 	} else {
     	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
