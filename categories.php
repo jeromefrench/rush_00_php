@@ -12,8 +12,9 @@ $sql_p= "SELECT * FROM products";
 
 if ($_GET['categorie'] != null)
 {
-	$sql_p= "SELECT * FROM products WHERE categorie = ".$_GET['categorie'];
-	$sql_p = "SELECT * FROM `products` WHERE `categorie` LIKE '".$_GET['categorie']."'";
+	/* $sql_p= "SELECT * FROM products WHERE categorie = ".$_GET['categorie']; */
+
+	echo $sql_p = "SELECT * FROM `products` WHERE `categorie` LIKE '".$_GET['categorie']."'";
 	echo "la requete ==>".$sql_p;
 }
 

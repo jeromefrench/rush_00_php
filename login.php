@@ -24,12 +24,12 @@
   <form action="inscription.php" method="post">
 		  <div class="container_login">
 				<label for="email"><b>MAIL</b></label>
-		    <input type="text" placeholder="Enter Email" name="email" required>
+			    <input type="text" placeholder="Enter Email" name="email" required>
 				<br />
-		    <label for="psw"><b>PASSWORD</b></label>
-		    <input type="password" placeholder="Enter Password" name="psw" required>
+			    <label for="psw"><b>PASSWORD</b></label>
+			    <input type="password" placeholder="Enter Password" name="psw" required>
 				<br />
-		    <button type="submit" class="loginbtn">LOG IN</button>
+			    <button type="submit" class="loginbtn">LOG IN</button>
 		  </div>
 		</form>
 
